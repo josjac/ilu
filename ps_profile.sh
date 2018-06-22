@@ -47,6 +47,12 @@ function parse_git_dirty {
 	fi
 }
 
-export PS1="\[\e[32m\]\t\[\e[m\] \[\e[32m\]\u\[\e[m\] \[\e[32m\]\w\[\e[m\] \`parse_git_branch\` \\$\n"
+#export PS1="\[\e[32m\]\t\[\e[m\] \[\e[32m\]\u\[\e[m\] \[\e[32m\]\w\[\e[m\] \`parse_git_branch\` \\$\n"
 
+function _update_ps1() {
+  PS1=$(powerline-shell $?)
+}
 
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
