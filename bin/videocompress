@@ -1,0 +1,2 @@
+#!/bin/bash
+ffmpeg -an -i $1 -vcodec libx264 -b:v $3 -pix_fmt yuv420p -profile:v baseline -level 3 $2 

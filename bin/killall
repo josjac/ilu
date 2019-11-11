@@ -1,0 +1,9 @@
+process=$(ps aux | grep $1 | grep -v grep | awk '{print $2}')
+echo $process
+
+if [ ! -n "$process" ]; then
+  echo "[killall] No hay procesos que eliminar.";
+else 
+  kill -9 $process;
+  echo "[killall] Procesos eliminados: $process";
+fi

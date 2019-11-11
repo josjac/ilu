@@ -5,3 +5,4 @@ source ~/ilu/alias_profile.sh
 source ~/ilu/ps_profile.sh
 
 export PATH=~/ilu/bin:$PATH
+export LC_ALL=es_ES.UTF-8
